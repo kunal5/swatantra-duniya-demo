@@ -6,7 +6,7 @@
 <title>Swatantra Duniya</title>
 <meta name="description" content="A clickable demo of the Swatantra Duniya news website: live world news, city pages for Lucknow, Kanpur, Varanasi and more, and Ask.">
 <meta property="og:title" content="Swatantra Duniya — clickable website demo">
-<meta property="og:description" content="Click through the homepage, the city pages (Lucknow, Kanpur, Varanasi, Prayagraj, Agra, Noida, Delhi), stories, Live and Ask. Sample stories, simulated reader numbers.">
+<meta property="og:description" content="Click through the homepage, city pages, stories, Live and Ask. Sample stories; reader analytics are unavailable until actual collection is connected.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#141414">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-60 -60 120 120'%3E%3Crect x='-60' y='-60' width='120' height='120' rx='26' fill='%23141414'/%3E%3Cpath d='M36.25 -16.9A40 40 0 1 1 16.9 -36.25' fill='none' stroke='%23F7F4EE' stroke-width='8.8' stroke-linecap='round'/%3E%3Ccircle cx='31.68' cy='-31.68' r='8' fill='%23E5322D'/%3E%3C/svg%3E">
@@ -316,7 +316,7 @@ footer .word{font-size:20px}
   </defs>
 </svg>
 
-<div class="demo-bar">Design demo · sample stories · simulated reader numbers<a href="https://kunal5.github.io/swatantra-duniya-demo/design.html">Read the design notes →</a></div>
+<div class="demo-bar">Design demo · sample stories · reader analytics unavailable<a href="https://kunal5.github.io/swatantra-duniya-demo/design.html">Read the design notes →</a></div>
 
 <header>
   <div class="topbar"><div class="wrap row">
@@ -342,8 +342,8 @@ footer .word{font-size:20px}
 <footer><div class="wrap">
   <div class="brand"><svg class="mark" aria-hidden="true"><use href="#sd-mark"/></svg><span class="word">Swatantra Duniya</span></div>
   <div>Lucknow · Uttar Pradesh · Delhi · the world. In English.</div>
-  <div>We summarise what other newsrooms report and link every source. No ads.</div>
-  <div style="margin-top:8px">This is a design demo. The stories are samples and the reader numbers are simulated.</div>
+  <div>We summarise what other newsrooms report and link every source.</div>
+  <div style="margin-top:8px">This is a design demo with sample stories. Reader analytics are unavailable; no readership counts are invented.</div>
 </div></footer>
 
 <nav class="bn" aria-label="Quick links">
@@ -387,173 +387,173 @@ const CITIES=[
   {id:"noida",n:"Noida",hi:"नोएडा",color:"--c-up",share:.008,state:"Uttar Pradesh",w:[21,"Smog",21,25,11],aqi:[312,148],alert:"Stage 3 air curbs: most construction paused; schools hybrid."},
   {id:"delhi",n:"Delhi",hi:"दिल्ली",color:"--c-del",share:.03,state:"Delhi",w:[21,"Smog",21,24,10],aqi:[338,162],alert:"Stage 3 air curbs: older diesel vehicles barred from the city."}
 ];
-// f: share of everyone on the site reading the story now. a: minutes since first report. arr: seconds after the page opens that the story arrives.
-// o: outlets reporting. st: d = developing, c = confirmed. v: views when the page opens (else estimated from f and a).
+// rank: editorial priority in sample fixtures. a: minutes since first report. arr: seconds after opening that a sample story arrives.
+// o: sample outlet count. st: d = developing, c = confirmed. No readership values are stored in these fixtures.
 const STORIES=[
-{id:"fog",s:"lucknow",c:"lucknow",f:.2,a:12,o:7,st:"d",brk:1,v:1120,src:"TOI NDTV HT AU DJ",fig:["40","flights delayed or diverted"],
+{id:"fog",s:"lucknow",c:"lucknow",rank:.2,a:12,o:7,st:"d",brk:1,src:"TOI NDTV HT AU DJ",fig:["40","flights delayed or diverted"],
  t:"Dense fog grounds 40 flights at Lucknow airport; several trains running late",
  sum:"Dense fog cut visibility at Lucknow airport to under 50 metres this morning, and 40 flights were delayed or diverted, airport officials said. Trains into Charbagh station ran two to five hours late, according to Northern Railway.",
  why:"The weather office expects dense fog for two more mornings, so travellers should check flight and train status before leaving home.",
  k:["Visibility fell below 50 metres at 6 AM","40 flights delayed or diverted","Trains 2 to 5 hours late at Charbagh"]},
-{id:"up",s:"up",c:"",f:.075,a:41,o:9,st:"d",v:1912,src:"HIN HT AU TOI DJ",fig:["₹2,400 cr","approved for land and roads"],
+{id:"up",s:"up",c:"",rank:.075,a:41,o:9,st:"d",src:"HIN HT AU TOI DJ",fig:["₹2,400 cr","approved for land and roads"],
  t:"UP cabinet clears ₹2,400 crore industrial corridor plan along Purvanchal Expressway",
  sum:"The state cabinet approved land and road works for an industrial corridor across six districts, officials said. Work is expected to start in early 2027, according to The Hindu.",
  why:"The corridor is meant to bring factories to eastern UP districts with few industrial jobs, officials said.",
  k:["Covers six districts along the expressway","Land and roads first, factory plots later","Land in two districts still to be bought","Start expected in early 2027"]},
-{id:"gomti",s:"lucknow",c:"lucknow",f:.019,a:60,o:3,st:"c",v:912,src:"HT TOI AU",t:"Gomti Riverfront walkway reopens after repairs",
+{id:"gomti",s:"lucknow",c:"lucknow",rank:.019,a:60,o:3,st:"c",src:"HT TOI AU",t:"Gomti Riverfront walkway reopens after repairs",
  sum:"The Gomti Riverfront walkway reopened on Saturday after four months of repairs to its railings and lights, the Lucknow Development Authority said. It is open from 5 AM to 10 PM.",
  why:"It is one of the few long, car-free walking stretches in the city centre.",k:["Repairs took four months","Open 5 AM to 10 PM","Entry is free"]},
-{id:"lda",s:"lucknow",c:"lucknow",f:.009,a:120,o:2,st:"c",v:1240,src:"TOI DJ",t:"LDA approves three new parking sites in Hazratganj",
+{id:"lda",s:"lucknow",c:"lucknow",rank:.009,a:120,o:2,st:"c",src:"TOI DJ",t:"LDA approves three new parking sites in Hazratganj",
  sum:"The Lucknow Development Authority approved three multi-level parking sites in Hazratganj with about 900 spaces in all, officials said. Work on the first is due to start in January.",
  why:"Parking on Hazratganj's main road causes jams in the market area every day.",k:["About 900 spaces across three sites","First site work from January","Street parking to shrink once they open"]},
-{id:"kgmu",s:"lucknow",c:"lucknow",f:.006,a:180,o:1,st:"d",v:980,src:"HT",t:"KGMU starts evening OPD for senior citizens",
+{id:"kgmu",s:"lucknow",c:"lucknow",rank:.006,a:180,o:1,st:"d",src:"HT",t:"KGMU starts evening OPD for senior citizens",
  sum:"King George's Medical University has started an evening outpatient clinic for patients over 60, open from 4 PM to 7 PM on weekdays, Hindustan Times reported.",
  why:"Older patients can avoid the morning crowd at the main OPD.",k:["For patients over 60","4 PM to 7 PM, Monday to Friday","Registration at a new counter near Gate 2"]},
-{id:"lu",s:"lucknow",c:"lucknow",f:.04,a:300,o:4,st:"c",v:3288,src:"HT AU TOI DJ",t:"Lucknow University announces semester exam dates",
+{id:"lu",s:"lucknow",c:"lucknow",rank:.04,a:300,o:4,st:"c",src:"HT AU TOI DJ",t:"Lucknow University announces semester exam dates",
  sum:"Lucknow University's odd-semester exams will start on 2 December, the university said. The full timetable is on its website, and admit cards will be issued a week before the first paper.",
  why:"About 60,000 students across the university and its colleges take these exams.",k:["Exams start 2 December","Admit cards a week before","Timetable on the university website"]},
-{id:"mahotsav",s:"lucknow",c:"lucknow",f:.005,a:95,o:3,st:"c",src:"TOI AU DJ",t:"Lucknow Mahotsav to run from 25 November to 5 December",
+{id:"mahotsav",s:"lucknow",c:"lucknow",rank:.005,a:95,o:3,st:"c",src:"TOI AU DJ",t:"Lucknow Mahotsav to run from 25 November to 5 December",
  sum:"This year's Lucknow Mahotsav will run for 11 days at the Vrindavan Yojana ground, the district administration said. Entry will be ₹20 for adults and free for children under 10.",
  why:"The fair is one of the city's biggest public events of the winter.",k:["25 November to 5 December","Entry ₹20, free under 10","At the Vrindavan Yojana ground"]},
-{id:"ekana",s:"lucknow",c:"lucknow",f:.004,a:210,o:5,st:"c",src:"TOI HT ESPN AU DJ",t:"Ekana stadium to host a T20 international in January",
+{id:"ekana",s:"lucknow",c:"lucknow",rank:.004,a:210,o:5,st:"c",src:"TOI HT ESPN AU DJ",t:"Ekana stadium to host a T20 international in January",
  sum:"Lucknow's Ekana stadium will host a T20 international in the third week of January, the state cricket association said. Ticket sales open in December.",
  why:"It will be the stadium's first international match of the season.",k:["Third week of January","Tickets on sale in December","Seats about 50,000"]},
-{id:"charbagh",s:"lucknow",c:"lucknow",f:.004,arr:25,o:2,st:"d",src:"AU HT",t:"Charbagh station to get two new foot overbridges",
+{id:"charbagh",s:"lucknow",c:"lucknow",rank:.004,arr:25,o:2,st:"d",src:"AU HT",t:"Charbagh station to get two new foot overbridges",
  sum:"Northern Railway will build two new foot overbridges at Lucknow's Charbagh station to ease crowding on platforms 1 to 4, Amar Ujala reported. Work will start after the winter rush.",
  why:"Charbagh handles more than 2 lakh passengers on a busy day.",k:["Two new overbridges","Platforms 1 to 4","Work starts after the winter rush"]},
-{id:"upboard",s:"up",c:"",f:.002,a:150,o:6,st:"c",src:"AU DJ HT TOI",t:"UP Board releases date sheet for 2027 Class 10 and 12 exams",
+{id:"upboard",s:"up",c:"",rank:.002,a:150,o:6,st:"c",src:"AU DJ HT TOI",t:"UP Board releases date sheet for 2027 Class 10 and 12 exams",
  sum:"The UP Board will hold its Class 10 and Class 12 exams from 18 February to 12 March 2027, the board said. Practical exams will be held in January.",
  why:"More than 50 lakh students sit these exams each year.",k:["18 February to 12 March","Practicals in January","Date sheet on the board's website"]},
-{id:"kmetro",s:"up",c:"kanpur",f:.005,a:25,o:4,st:"d",src:"AU TOI DJ HT",t:"Kanpur Metro begins trial runs on its second line",
+{id:"kmetro",s:"up",c:"kanpur",rank:.005,a:25,o:4,st:"d",src:"AU TOI DJ HT",t:"Kanpur Metro begins trial runs on its second line",
  sum:"Kanpur Metro ran its first trial train on the second line, from the agricultural university to Barra, on Saturday, officials said. Passenger service is planned for late 2027.",
  why:"The line will link the city's southern neighbourhoods with the centre.",k:["First trial run on Saturday","Agricultural university to Barra","Passengers from late 2027"]},
-{id:"leather",s:"up",c:"kanpur",f:.003,a:140,o:2,st:"c",src:"DJ AU",t:"Leather export fair opens in Kanpur with 120 stalls",
+{id:"leather",s:"up",c:"kanpur",rank:.003,a:140,o:2,st:"c",src:"DJ AU",t:"Leather export fair opens in Kanpur with 120 stalls",
  sum:"A three-day leather and footwear export fair opened in Kanpur with 120 stalls and buyers from 14 countries, the organisers said.",
  why:"Leather is one of Kanpur's largest employers.",k:["120 stalls","Buyers from 14 countries","Ends on Monday"]},
-{id:"greenpark",s:"up",c:"kanpur",f:.002,a:200,o:2,st:"c",src:"AU ESPN",t:"Green Park to host a Ranji Trophy match next week",
+{id:"greenpark",s:"up",c:"kanpur",rank:.002,a:200,o:2,st:"c",src:"AU ESPN",t:"Green Park to host a Ranji Trophy match next week",
  sum:"Kanpur's Green Park stadium will host Uttar Pradesh's next Ranji Trophy home match from Thursday, the state cricket association said. Entry is free.",
  why:"It is the ground's first first-class match of the season.",k:["Starts Thursday","Entry is free","UP's second home match"]},
-{id:"kpower",s:"up",c:"kanpur",f:.001,a:75,o:1,st:"d",src:"DJ",t:"Power cuts planned in Kidwai Nagar for line work",
+{id:"kpower",s:"up",c:"kanpur",rank:.001,a:75,o:1,st:"d",src:"DJ",t:"Power cuts planned in Kidwai Nagar for line work",
  sum:"Parts of Kidwai Nagar will have no power from 10 AM to 1 PM on Sunday for line upgrades, the power company said, Dainik Jagran reported.",
  why:"Residents may want to plan water pumping and phone charging ahead.",k:["Sunday, 10 AM to 1 PM","Parts of Kidwai Nagar","For line upgrades"]},
-{id:"iitk",s:"up",c:"kanpur",f:.001,a:260,o:3,st:"c",src:"TOI HT AU",t:"IIT Kanpur tech fest draws 30,000 visitors on day one",
+{id:"iitk",s:"up",c:"kanpur",rank:.001,a:260,o:3,st:"c",src:"TOI HT AU",t:"IIT Kanpur tech fest draws 30,000 visitors on day one",
  sum:"IIT Kanpur's annual technology festival drew about 30,000 visitors on its first day, the institute said. It runs until Sunday.",
  why:"It is one of north India's biggest student tech events.",k:["About 30,000 on day one","Runs until Sunday","Open to school students"]},
-{id:"devdeep",s:"up",c:"varanasi",f:.005,a:3,o:3,st:"d",src:"AU TOI DJ",t:"Varanasi sets crowd plan for Dev Deepawali on the ghats",
+{id:"devdeep",s:"up",c:"varanasi",rank:.005,a:3,o:3,st:"d",src:"AU TOI DJ",t:"Varanasi sets crowd plan for Dev Deepawali on the ghats",
  sum:"Varanasi police will make the main ghats one-way on Dev Deepawali evening, and boats will stop taking new passengers at 6 PM, officials said. Police expect more than 10 lakh visitors.",
  why:"Crowds on the narrow ghat steps are the main safety risk on the night.",k:["Main ghats one-way","Boats stop new trips at 6 PM","More than 10 lakh visitors expected"]},
-{id:"ropeway",s:"up",c:"varanasi",f:.003,a:55,o:4,st:"c",src:"TOI HT AU DJ",t:"Varanasi ropeway completes its first full trial run",
+{id:"ropeway",s:"up",c:"varanasi",rank:.003,a:55,o:4,st:"c",src:"TOI HT AU DJ",t:"Varanasi ropeway completes its first full trial run",
  sum:"The urban ropeway between Varanasi Cantt station and Godowlia completed its first full trial run, officials said. Passenger service may begin early next year.",
  why:"It could cut a 45-minute road trip through the old city to about 16 minutes.",k:["Cantt station to Godowlia","About 16 minutes end to end","Passengers from early 2027"]},
-{id:"bhu",s:"up",c:"varanasi",f:.001,a:190,o:2,st:"c",src:"HT AU",t:"BHU opens PhD admission registration",
+{id:"bhu",s:"up",c:"varanasi",rank:.001,a:190,o:2,st:"c",src:"HT AU",t:"BHU opens PhD admission registration",
  sum:"Banaras Hindu University opened online registration for PhD admissions, with a deadline of 15 December, the university said.",
  why:"BHU is one of the largest universities in north India.",k:["Deadline 15 December","Online registration","Entrance test in January"]},
-{id:"boats",s:"up",c:"varanasi",f:.001,a:110,o:2,st:"c",src:"DJ AU",t:"Boat fares on the Ganga fixed for the festival week",
+{id:"boats",s:"up",c:"varanasi",rank:.001,a:110,o:2,st:"c",src:"DJ AU",t:"Boat fares on the Ganga fixed for the festival week",
  sum:"The district administration has fixed boat fares on the Ganga for the festival week, starting at ₹150 a person for a shared boat, Dainik Jagran reported.",
  why:"Fares usually jump during the festival.",k:["Shared boats from ₹150","Fares displayed at each ghat","Complaints on a helpline"]},
-{id:"magh",s:"up",c:"prayagraj",f:.004,a:70,o:4,st:"d",src:"AU DJ HT TOI",t:"Magh Mela 2027: work begins on five pontoon bridges",
+{id:"magh",s:"up",c:"prayagraj",rank:.004,a:70,o:4,st:"d",src:"AU DJ HT TOI",t:"Magh Mela 2027: work begins on five pontoon bridges",
  sum:"Work has begun on five pontoon bridges across the Ganga for the Magh Mela, which starts in January, the mela authority said.",
  why:"The bridges carry most pilgrims between the city and the mela area.",k:["Five pontoon bridges","Mela starts in January","Due by the end of December"]},
-{id:"pbridge",s:"up",c:"prayagraj",f:.001,a:230,o:2,st:"c",src:"AU HT",t:"New six-lane Ganga bridge reaches 60% completion",
+{id:"pbridge",s:"up",c:"prayagraj",rank:.001,a:230,o:2,st:"c",src:"AU HT",t:"New six-lane Ganga bridge reaches 60% completion",
  sum:"The new six-lane bridge over the Ganga at Phaphamau is 60% complete, the state bridge corporation said. It is due to open in 2027.",
  why:"The old bridge is a daily bottleneck for traffic to Lucknow.",k:["60% complete","Six lanes","Due in 2027"]},
-{id:"allu",s:"up",c:"prayagraj",f:.001,a:160,o:2,st:"c",src:"AU DJ",t:"University of Allahabad declares semester results",
+{id:"allu",s:"up",c:"prayagraj",rank:.001,a:160,o:2,st:"c",src:"AU DJ",t:"University of Allahabad declares semester results",
  sum:"The University of Allahabad has declared results for its undergraduate semester exams, the university said. Results are on its website.",
  why:"Students need them for scholarship applications due this month.",k:["Undergraduate results","On the university website","Rechecking forms open for 10 days"]},
-{id:"nightbus",s:"up",c:"prayagraj",f:.001,arr:110,o:1,st:"d",src:"AU",t:"Prayagraj adds night buses to the Sangam area",
+{id:"nightbus",s:"up",c:"prayagraj",rank:.001,arr:110,o:1,st:"d",src:"AU",t:"Prayagraj adds night buses to the Sangam area",
  sum:"The city transport service will run buses to the Sangam area until 11 PM from Monday, Amar Ujala reported.",
  why:"Evening visitors have had few ways to get back.",k:["Until 11 PM","From Monday","Every 20 minutes"]},
-{id:"tajnight",s:"up",c:"agra",f:.002,a:85,o:3,st:"c",src:"TOI HT AU",t:"Taj Mahal night viewing tickets go on sale for the full moon",
+{id:"tajnight",s:"up",c:"agra",rank:.002,a:85,o:3,st:"c",src:"TOI HT AU",t:"Taj Mahal night viewing tickets go on sale for the full moon",
  sum:"Tickets for night viewing of the Taj Mahal around the full moon went on sale online, the Archaeological Survey of India said. Each slot allows 50 visitors.",
  why:"The night slots sell out within hours each month.",k:["Five nights around the full moon","50 visitors per slot","Online booking only"]},
-{id:"yexp",s:"up",c:"agra",f:.003,a:50,o:5,st:"c",src:"TOI HT AU DJ IE",t:"Speed limit cut on Yamuna Expressway for the fog season",
+{id:"yexp",s:"up",c:"agra",rank:.003,a:50,o:5,st:"c",src:"TOI HT AU DJ IE",t:"Speed limit cut on Yamuna Expressway for the fog season",
  sum:"The speed limit on the Yamuna Expressway has been cut to 75 km/h for cars until 15 February because of fog, the expressway authority said.",
  why:"Fog has caused several pile-ups on the expressway in past winters.",k:["Cars: 75 km/h","Heavy vehicles: 60 km/h","Until 15 February"]},
-{id:"agrametro",s:"up",c:"agra",f:.0005,a:240,o:2,st:"c",src:"AU DJ",t:"Agra Metro extends hours to 11 PM",
+{id:"agrametro",s:"up",c:"agra",rank:.0005,a:240,o:2,st:"c",src:"AU DJ",t:"Agra Metro extends hours to 11 PM",
  sum:"Agra Metro trains will now run until 11 PM, an hour later than before, the metro corporation said.",
  why:"Tourists returning from evening visits can now use it.",k:["Until 11 PM","From Monday","Every 10 minutes after 8 PM"]},
-{id:"petha",s:"up",c:"agra",f:.0005,arr:80,o:1,st:"d",src:"DJ",t:"Agra's petha makers apply for a GI tag",
+{id:"petha",s:"up",c:"agra",rank:.0005,arr:80,o:1,st:"d",src:"DJ",t:"Agra's petha makers apply for a GI tag",
  sum:"Agra's petha makers' association has applied for a geographical indication tag for the sweet, Dainik Jagran reported.",
  why:"A GI tag would stop sweets made elsewhere being sold as Agra petha.",k:["Application filed","Covers the ash-gourd sweet","A decision may take a year"]},
-{id:"noidaaqi",s:"up",c:"noida",f:.004,a:35,o:5,st:"d",src:"TOI HT NDTV AU IE",t:"Noida schools move to hybrid classes as air turns very poor",
+{id:"noidaaqi",s:"up",c:"noida",rank:.004,a:35,o:5,st:"d",src:"TOI HT NDTV AU IE",t:"Noida schools move to hybrid classes as air turns very poor",
  sum:"Schools in Noida and Greater Noida will hold classes both online and in person until further notice, the district administration said, as the AQI stayed above 300.",
  why:"Children are among those most affected by polluted air.",k:["Hybrid classes until further notice","AQI above 300","Applies up to Class 9"]},
-{id:"jewar",s:"up",c:"noida",f:.003,a:130,o:4,st:"c",src:"TOI HT MINT ET",t:"Noida International Airport publishes its first winter schedule",
+{id:"jewar",s:"up",c:"noida",rank:.003,a:130,o:4,st:"c",src:"TOI HT MINT ET",t:"Noida International Airport publishes its first winter schedule",
  sum:"Noida International Airport at Jewar published its first winter flight schedule, with 26 daily departures to 14 cities, the airport said.",
  why:"It gives west UP its own large airport, so travellers need not go to Delhi.",k:["26 daily departures","14 cities","From 1 December"]},
-{id:"filmcity",s:"up",c:"noida",f:.0005,a:280,o:2,st:"c",src:"HT ET",t:"Noida Film City signs its first studio lease",
+{id:"filmcity",s:"up",c:"noida",rank:.0005,a:280,o:2,st:"c",src:"HT ET",t:"Noida Film City signs its first studio lease",
  sum:"The Film City project near the Yamuna Expressway has signed its first studio lease, the development authority said.",
  why:"The project is meant to bring film jobs to the region.",k:["First studio lease","Near the Yamuna Expressway","Shooting from 2027"]},
-{id:"sector18",s:"up",c:"noida",f:.0005,arr:50,o:2,st:"d",src:"HT TOI",t:"Noida: traffic slows near Sector 18 after a bus breaks down",
+{id:"sector18",s:"up",c:"noida",rank:.0005,arr:50,o:2,st:"d",src:"HT TOI",t:"Noida: traffic slows near Sector 18 after a bus breaks down",
  sum:"Traffic slowed near Sector 18 after a bus broke down in the left lane, Noida traffic police said. A tow truck is on the way.",
  why:"Expect delays of 15 to 20 minutes for the next hour.",k:["Near Sector 18","Left lane blocked","15 to 20 minute delays"]},
-{id:"delhiaqi",s:"delhi",c:"delhi",f:.015,a:28,o:11,st:"d",src:"HT IE TOI NDTV PTI",fig:["338","AQI at 9 AM (CPCB)"],t:"Delhi's air turns very poor; stage 3 curbs return",
+{id:"delhiaqi",s:"delhi",c:"delhi",rank:.015,a:28,o:11,st:"d",src:"HT IE TOI NDTV PTI",fig:["338","AQI at 9 AM (CPCB)"],t:"Delhi's air turns very poor; stage 3 curbs return",
  sum:"Delhi's air quality index was 338 at 9 AM, in the 'very poor' band, according to the pollution control board. Stage 3 curbs under the city's air plan are back, pausing most construction and barring older diesel vehicles.",
  why:"Doctors advise children and older people to limit time outdoors when the index is above 300.",k:["AQI 338 at 9 AM","Stage 3 curbs back","Older diesel vehicles barred"]},
-{id:"dmetro",s:"delhi",c:"delhi",f:.004,a:180,o:6,st:"c",src:"HT IE TOI",t:"Delhi Metro opens a new stretch on the Magenta Line",
+{id:"dmetro",s:"delhi",c:"delhi",rank:.004,a:180,o:6,st:"c",src:"HT IE TOI",t:"Delhi Metro opens a new stretch on the Magenta Line",
  sum:"A new stretch of the Magenta Line opened to passengers on Saturday, adding four stations, Delhi Metro said.",
  why:"It shortens trips between west and south Delhi.",k:["Four new stations","Opened on Saturday","Trains every 5 minutes at peak"]},
-{id:"dtraffic",s:"delhi",c:"delhi",f:.002,a:240,o:3,st:"c",src:"HT TOI IE",t:"Traffic advisory for Sunday's half marathon",
+{id:"dtraffic",s:"delhi",c:"delhi",rank:.002,a:240,o:3,st:"c",src:"HT TOI IE",t:"Traffic advisory for Sunday's half marathon",
  sum:"Several roads in central Delhi will be closed from 4 AM to 11 AM on Sunday for the half marathon, Delhi Traffic Police said.",
  why:"The Metro is the easiest way in during the closure.",k:["4 AM to 11 AM on Sunday","Central Delhi roads","Metro starts at 4 AM"]},
-{id:"ec",s:"india",c:"",f:.021,a:26,o:5,st:"d",v:284,src:"IE HIN PTI",t:"Election Commission sets dates for two state by-polls",
+{id:"ec",s:"india",c:"",rank:.021,a:26,o:5,st:"d",src:"IE HIN PTI",t:"Election Commission sets dates for two state by-polls",
  sum:"The Election Commission announced by-elections for two assembly seats on 14 December, with counting on 17 December, it said.",
  why:"Both seats fell vacant this year.",k:["Polling on 14 December","Counting on 17 December","Model code in force now"]},
-{id:"imd",s:"india",c:"",f:.006,a:90,o:6,st:"c",src:"HIN IE PTI",t:"IMD forecasts a colder-than-usual December for north India",
+{id:"imd",s:"india",c:"",rank:.006,a:90,o:6,st:"c",src:"HIN IE PTI",t:"IMD forecasts a colder-than-usual December for north India",
  sum:"The India Meteorological Department expects below-normal temperatures across north India in December, with more foggy days than usual, it said.",
  why:"More fog means more flight and train delays across the region.",k:["Below-normal temperatures","More foggy days","Covers UP, Delhi and Punjab"]},
-{id:"rail",s:"india",c:"",f:.005,a:140,o:4,st:"c",src:"TOI HT PTI",t:"Railways adds 40 winter special trains on northern routes",
+{id:"rail",s:"india",c:"",rank:.005,a:140,o:4,st:"c",src:"TOI HT PTI",t:"Railways adds 40 winter special trains on northern routes",
  sum:"Indian Railways will run 40 special trains on northern routes for the winter holidays, the railway ministry said. Bookings open on Monday.",
  why:"Regular trains on these routes are full weeks ahead.",k:["40 special trains","Bookings from Monday","Lucknow and Varanasi among the stops"]},
-{id:"storm",s:"india",c:"",f:.004,a:6,o:4,st:"d",src:"HIN PTI NDTV",t:"Storm warning issued for the Bay of Bengal coast",
+{id:"storm",s:"india",c:"",rank:.004,a:6,o:4,st:"d",src:"HIN PTI NDTV",t:"Storm warning issued for the Bay of Bengal coast",
  sum:"The weather office issued a storm warning for the Odisha and Andhra Pradesh coasts and asked fishermen not to go to sea for three days.",
  why:"The storm is not expected to change north India's weather.",k:["Odisha and Andhra coasts","Fishermen told to stay ashore","For three days"]},
-{id:"climate",s:"world",c:"",f:.03,a:120,o:14,st:"c",v:2540,src:"REU BBC HIN ALJ",t:"Climate talks enter final week with finance deal still open",
+{id:"climate",s:"world",c:"",rank:.03,a:120,o:14,st:"c",src:"REU BBC HIN ALJ",t:"Climate talks enter final week with finance deal still open",
  sum:"UN climate talks entered their final week without agreement on how much rich countries will pay to help poorer ones cut emissions and adapt, negotiators said.",
  why:"The finance figure decides how fast countries like India can afford cleaner power.",k:["Final week begins","Finance target still open","India seeks larger grants"]},
-{id:"shipping",s:"world",c:"",f:.005,a:200,o:8,st:"c",src:"REU BBC",t:"Shipping nations agree a roadmap to cut fuel emissions",
+{id:"shipping",s:"world",c:"",rank:.005,a:200,o:8,st:"c",src:"REU BBC",t:"Shipping nations agree a roadmap to cut fuel emissions",
  sum:"Member countries of the UN shipping agency agreed a roadmap to cut emissions from ship fuel by 2040, the agency said.",
  why:"Ships carry most of India's trade by volume.",k:["Target year 2040","Covers ship fuel","Details due next year"]},
-{id:"gas",s:"world",c:"",f:.004,a:170,o:5,st:"c",src:"REU BBC ALJ",t:"Europe's winter gas stocks near record highs, ministers say",
+{id:"gas",s:"world",c:"",rank:.004,a:170,o:5,st:"c",src:"REU BBC ALJ",t:"Europe's winter gas stocks near record highs, ministers say",
  sum:"Gas storage across the European Union is more than 95% full as winter starts, energy ministers said.",
  why:"Fuller stocks can keep world gas prices, including India's import prices, steadier.",k:["Over 95% full","Ahead of winter","Prices lower than last year"]},
-{id:"sensex",s:"business",c:"",f:.052,a:18,o:11,st:"c",v:512,src:"MINT ET BS",fig:["+412","points at the Sensex close"],t:"Sensex closes 412 points higher as bank shares rally",
+{id:"sensex",s:"business",c:"",rank:.052,a:18,o:11,st:"c",src:"MINT ET BS",fig:["+412","points at the Sensex close"],t:"Sensex closes 412 points higher as bank shares rally",
  sum:"The Sensex closed 412 points higher, led by bank shares, after two days of losses, exchange data showed.",
  why:"Bank shares make up a large part of many mutual funds.",k:["Up 412 points","Banks led the gains","Ends a two-day fall"]},
-{id:"rbi",s:"business",c:"",f:.01,a:2,o:6,st:"d",src:"MINT ET BS",t:"RBI keeps repo rate unchanged, says it will watch the data",
+{id:"rbi",s:"business",c:"",rank:.01,a:2,o:6,st:"d",src:"MINT ET BS",t:"RBI keeps repo rate unchanged, says it will watch the data",
  sum:"The Reserve Bank of India kept its main lending rate unchanged and said it would watch inflation data before its next move.",
  why:"Home and car loan EMIs stay the same for now.",k:["Repo rate unchanged","Watching inflation","Next review in February"]},
-{id:"gold",s:"business",c:"",f:.003,a:150,o:4,st:"c",src:"ET MINT",t:"Gold prices ease ahead of the wedding season",
+{id:"gold",s:"business",c:"",rank:.003,a:150,o:4,st:"c",src:"ET MINT",t:"Gold prices ease ahead of the wedding season",
  sum:"Gold prices fell about 1% in Indian markets this week ahead of the wedding season, traders said.",
  why:"Wedding demand usually pushes prices up in November and December.",k:["Down about 1% this week","Wedding season ahead","Silver steady"]},
-{id:"odi",s:"sports",c:"",f:.066,a:60,o:16,st:"c",v:2170,src:"ESPN IE TOI",fig:["6 wkts","winning margin"],t:"India seal ODI series with six-wicket win in Pune",
+{id:"odi",s:"sports",c:"",rank:.066,a:60,o:16,st:"c",src:"ESPN IE TOI",fig:["6 wkts","winning margin"],t:"India seal ODI series with six-wicket win in Pune",
  sum:"India won the third ODI in Pune by six wickets to take the series 2–1. The chase finished with 14 balls to spare.",
  why:"It is India's third series win in a row at home.",k:["Won by six wickets","Series 2–1","14 balls to spare"]},
-{id:"hockey",s:"sports",c:"",f:.003,a:190,o:4,st:"c",src:"IE HT",t:"India's women's hockey team names its Pro League squad",
+{id:"hockey",s:"sports",c:"",rank:.003,a:190,o:4,st:"c",src:"IE HT",t:"India's women's hockey team names its Pro League squad",
  sum:"Hockey India named a 24-player women's squad for the Pro League matches starting in December.",
  why:"The league is the team's main preparation for next year's tournaments.",k:["24 players","Matches from December","Two new faces"]},
-{id:"yoddhas",s:"sports",c:"",f:.003,a:230,o:3,st:"c",src:"TOI AU",t:"UP Yoddhas win their third Pro Kabaddi match in a row",
+{id:"yoddhas",s:"sports",c:"",rank:.003,a:230,o:3,st:"c",src:"TOI AU",t:"UP Yoddhas win their third Pro Kabaddi match in a row",
  sum:"UP Yoddhas won their third straight Pro Kabaddi League match, winning by seven points, the league said.",
  why:"The run lifts them into the top four.",k:["Third straight win","Won by seven points","Now in the top four"]},
-{id:"yhome",s:"sports",c:"",f:.002,arr:140,o:2,st:"d",src:"AU TOI",t:"UP Yoddhas to play home matches in Lucknow in January",
+{id:"yhome",s:"sports",c:"",rank:.002,arr:140,o:2,st:"d",src:"AU TOI",t:"UP Yoddhas to play home matches in Lucknow in January",
  sum:"UP Yoddhas will play their home leg of the Pro Kabaddi League in Lucknow in January, the team said. Tickets go on sale next week.",
  why:"It is the first time the home leg comes to Lucknow.",k:["In January","In Lucknow","Tickets next week"]},
-{id:"goa",s:"entertainment",c:"",f:.02,a:9,o:7,st:"c",src:"HT IE TOI",t:"Film festival opens in Goa with 80 premieres",
+{id:"goa",s:"entertainment",c:"",rank:.02,a:9,o:7,st:"c",src:"HT IE TOI",t:"Film festival opens in Goa with 80 premieres",
  sum:"The International Film Festival of India opened in Goa with 80 premieres across nine days, the organisers said.",
  why:"Many Indian films use the festival to find distributors.",k:["80 premieres","Nine days","Indian Panorama opens on Monday"]},
-{id:"ott",s:"entertainment",c:"",f:.005,a:180,o:3,st:"c",src:"HT AU",t:"Lucknow-shot web series tops streaming charts",
+{id:"ott",s:"entertainment",c:"",rank:.005,a:180,o:3,st:"c",src:"HT AU",t:"Lucknow-shot web series tops streaming charts",
  sum:"A web series shot mostly in Lucknow's old city became the most-watched show on a major streaming service this week, the service said.",
  why:"More productions are choosing Lucknow for its locations and the state's film subsidy.",k:["Shot in old Lucknow","Most-watched this week","Season two announced"]},
-{id:"upi",s:"tech",c:"",f:.008,a:100,o:5,st:"c",src:"MINT ET BS",t:"UPI crosses 20 billion payments in a month",
+{id:"upi",s:"tech",c:"",rank:.008,a:100,o:5,st:"c",src:"MINT ET BS",t:"UPI crosses 20 billion payments in a month",
  sum:"UPI handled more than 20 billion payments last month for the first time, according to the payments body NPCI.",
  why:"Small shops and street vendors now take most of their payments this way.",k:["Over 20 billion in a month","A first","Value up 18% on last year"]},
-{id:"landai",s:"tech",c:"",f:.003,a:220,o:2,st:"c",src:"HT AU",t:"UP launches an AI help desk for land records",
+{id:"landai",s:"tech",c:"",rank:.003,a:220,o:2,st:"c",src:"HT AU",t:"UP launches an AI help desk for land records",
  sum:"Uttar Pradesh launched a chat help desk that answers questions about land records in Hindi and English, the revenue department said.",
  why:"Land record questions are one of the most common reasons people visit tehsil offices.",k:["Hindi and English","Answers land record questions","On the revenue department website"]},
-{id:"isro",s:"science",c:"",f:.004,a:170,o:6,st:"c",src:"HIN IE PTI",t:"ISRO schedules next PSLV launch for December",
+{id:"isro",s:"science",c:"",rank:.004,a:170,o:6,st:"c",src:"HIN IE PTI",t:"ISRO schedules next PSLV launch for December",
  sum:"ISRO will launch its next PSLV rocket from Sriharikota in the second week of December, carrying an earth-observation satellite, the agency said.",
  why:"The satellite will improve crop and flood monitoring.",k:["Second week of December","Earth-observation satellite","From Sriharikota"]},
-{id:"dengue",s:"science",c:"",f:.003,a:130,o:3,st:"c",src:"HT AU DJ",t:"Dengue cases fall in UP as temperatures drop",
+{id:"dengue",s:"science",c:"",rank:.003,a:130,o:3,st:"c",src:"HT AU DJ",t:"Dengue cases fall in UP as temperatures drop",
  sum:"New dengue cases in Uttar Pradesh fell by half over the past two weeks as nights turned colder, the state health department said.",
  why:"The mosquitoes that spread dengue breed less in cold weather.",k:["Cases down by half","Over two weeks","Hospitals keep fever wards open"]}
 ];
@@ -582,20 +582,14 @@ const ASKS=[
 
 const LAND={75:[[-120,-80],[-70,-20],[15,25],[55,70],[90,115]],70:[[-165,-140],[-130,-70],[-55,-22],[18,32],[60,180]],65:[[-165,-140],[-140,-62],[-52,-38],[-22,-14],[10,32],[35,180]],60:[[-160,-140],[-135,-64],[-48,-42],[5,30],[30,165]],55:[[-130,-58],[-7,-1],[8,28],[30,160]],50:[[-125,-56],[-5,2],[2,40],[40,140]],45:[[-124,-64],[-1,40],[45,135],[141,145]],40:[[-124,-74],[-9,3],[9,18],[20,45],[50,122],[125,129],[140,142]],35:[[-120,-76],[-6,10],[22,120],[132,140]],30:[[-115,-81],[-10,122]],25:[[-110,-97],[-82,-80],[-15,35],[37,57],[62,92],[98,120]],20:[[-105,-87],[-84,-74],[-16,38],[40,57],[70,87],[93,110]],15:[[-92,-84],[-17,42],[43,52],[74,80],[97,109],[120,124]],10:[[-85,-61],[-15,51],[76,80],[98,107],[122,126]],5:[[-77,-52],[-8,48],[100,104],[115,118]],0:[[-80,-50],[9,42],[99,104],[109,118],[120,125]],"-5":[[-81,-35],[12,40],[105,115],[132,150]],"-10":[[-78,-37],[13,40],[130,142]],"-15":[[-75,-39],[12,40],[44,50],[124,145]],"-20":[[-70,-40],[13,35],[44,48],[114,149]],"-25":[[-70,-48],[15,33],[113,153]],"-30":[[-71,-50],[17,31],[115,153]],"-35":[[-72,-57],[18,25],[117,150]],"-40":[[-73,-63],[145,148],[172,178]],"-45":[[-74,-66],[167,171]],"-50":[[-75,-69]],"-55":[[-70,-66]]};
 const HOT=[[26.8,80.9,9,"Lucknow"],[28.6,77.2,7],[19.1,72.9,5],[38.9,-77,7],[51.5,-.1,5],[50.4,30.5,6],[31.8,35.2,6],[-15.8,-47.9,3],[35.7,139.7,4],[-26,28,3],[-33.9,151.2,3],[39.9,116.4,5],[33.7,73,4],[23.8,90.4,3],[48.9,2.3,4],[55.8,37.6,4],[9.1,7.5,3],[19.4,-99.1,3],[-6.2,106.8,3],[24.5,54.4,3]];
-// ---------- simulated readership: a daily rhythm, a small wobble, and 1,000 people at launch ----------
-const SHAPE=[.35,.25,.18,.15,.15,.22,.45,.80,1.15,1.30,1.25,1.15,1.10,1.05,1.00,.98,1.00,1.05,1.12,1.25,1.40,1.45,1.20,.75];
+// ---------- sample-story clock ----------
 const T0=15*3600, START=Date.now();
-const SECONDS_PER_VIEW=80, READS_PER_READER_MINUTE=0.3;
 const elapsed=()=>(Date.now()-START)/1000;
 const clock=()=>T0+elapsed();
-const sh=m=>{const h=Math.floor(m/60)%24,f=(m%60)/60;return SHAPE[(h+24)%24]*(1-f)+SHAPE[(h+25)%24]*f};
-const nz=s=>{const m=s/60;return .06*Math.sin(2*Math.PI*m/37)+.04*Math.sin(2*Math.PI*m/11+1.3)+.02*Math.sin(2*Math.PI*m/3.1+2.1)+.012*Math.sin(s*1.7)};
-const R=s=>Math.round(1000*sh(s/60)*0.95*(1+nz(s)));
 
 // ---------- helpers ----------
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 const inr=n=>Math.round(n).toLocaleString('en-IN');
-const lakh=n=>n>=1e7?(n/1e7).toFixed(1)+' crore':n>=1e5?(n/1e5).toFixed(1)+' lakh':inr(n);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const SEC=Object.fromEntries(SECTIONS.map(x=>[x.id,x]));
 const CITY=Object.fromEntries(CITIES.map(x=>[x.id,x]));
@@ -605,7 +599,6 @@ const isVisible=st=>!st.arr||elapsed()>=st.arr;
 const visible=()=>STORIES.filter(isVisible);
 const ageMin=st=>st.arr?Math.max(0,(elapsed()-st.arr)/60):st.a+elapsed()/60;
 const byRecent=list=>[...list].sort((a,b)=>ageMin(a)-ageMin(b));
-const byReaders=list=>[...list].sort((a,b)=>(READING[b.id]||0)-(READING[a.id]||0));
 const ago=st=>{const m=ageMin(st);return m<1?'just now':m<60?Math.floor(m)+' min ago':Math.floor(m/60)+'h ago'};
 const agoShort=st=>{const m=ageMin(st);return m<1?'now':m<60?Math.floor(m)+'m':Math.floor(m/60)+'h'};
 const clockAt=minAgo=>{let t=Math.round(clock()/60-minAgo);t=((t%1440)+1440)%1440;const h=Math.floor(t/60),m=t%60;return `${h%12||12}:${String(m).padStart(2,'0')} ${h<12?'AM':'PM'}`};
@@ -618,7 +611,6 @@ const pill=st=>st.o===1?'<span class="pill one">One outlet</span>':st.st==='c'?'
 const srcs=st=>st.src.split(' ');
 const favs=st=>`<span class="fav">${srcs(st).slice(0,3).map(k=>`<i style="background:${OUT[k].c}">${OUT[k].a}</i>`).join('')}</span>`;
 const outletsTxt=st=>st.o===1?`Reported by ${OUT[srcs(st)[0]].n}`:`${st.o} outlets`;
-const readTime=st=>{const w=(st.sum+' '+st.why+' '+st.k.join(' ')).split(/\s+/).length;const s=Math.round(45+w*0.55);return `${Math.floor(s/60)}m ${String(s%60).padStart(2,'0')}s`};
 const firstSentence=t=>(t.match(/^.*?[.!?](\s|$)/)||[t])[0].trim();
 const aqiBand=v=>v<=50?'Good':v<=100?'Satisfactory':v<=200?'Moderate':v<=300?'Poor':v<=400?'Very poor':'Severe';
 const ICON={
@@ -627,66 +619,28 @@ const ICON={
   search:'<svg width="15" height="15" viewBox="0 0 16 16"><circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 11l3.5 3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>'
 };
 
-// ---------- numbers ----------
-const READING={};
-let lastTick=null, CITY_RN={}, SEC_RN={};
-STORIES.forEach(st=>{if(st.v===undefined){const age=st.arr?0:st.a;const T=Math.min(age,240)+0.15*Math.max(0,age-240);st.v=Math.round(st.f*950*T*60/SECONDS_PER_VIEW*0.6)}});
-function readsSinceMidnight(s){let n=0;const end=(s%86400)/60;for(let m=0;m<end;m+=5)n+=1000*0.95*sh(m)*5*READS_PER_READER_MINUTE;return n}
-function tween(el,to,fmt){const from=el.dataset.v===undefined?to:+el.dataset.v;el.dataset.v=to;if(from===to){el.textContent=fmt(to);return}const t0=performance.now();
-  const step=now=>{const k=Math.min(1,(now-t0)/600),v=Math.round(from+(to-from)*(1-Math.pow(1-k,3)));el.textContent=fmt(v);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
-function computeNumbers(){
-  const s=clock(), r=R(s), dt=lastTick===null?0:(Date.now()-lastTick)/1000; lastTick=Date.now();
-  const raw=SECTIONS.map((x,i)=>x.share*(1+.05*Math.sin(s/53+i*1.7))), tot=raw.reduce((a,b)=>a+b,0);
-  const vals=raw.map(v=>Math.round(r*v/tot)); vals[0]+=r-vals.reduce((a,b)=>a+b,0);
-  SECTIONS.forEach((x,i)=>SEC_RN[x.id]=vals[i]);
-  CITIES.forEach((c,i)=>CITY_RN[c.id]=SEC_RN[c.id]!==undefined?SEC_RN[c.id]:Math.max(1,Math.round(r*c.share*(1+.08*Math.sin(s/41+i*2.1)))));
-  STORIES.forEach((st,i)=>{if(!isVisible(st))return;const n=Math.max(0,Math.round(r*st.f*(1+.08*Math.sin(2*Math.PI*s/420+i*2.3))));READING[st.id]=n;st.v+=n*dt/SECONDS_PER_VIEW});
-  return {s,r,vals};
-}
+// ---------- latest sample stories; readership requires a real collection service ----------
 function tick(){
-  const {s,r,vals}=computeNumbers();
-  $$('[data-k="rn"]').forEach(el=>tween(el,r,inr));
-  let reads=0;for(let k=0;k<96;k++)reads+=R(s-k*900-450)*15*READS_PER_READER_MINUTE;
-  $$('[data-k="r24"]').forEach(el=>el.textContent=lakh(reads));
-  const at=Math.round(250*(1+.04*Math.sin(2*Math.PI*s/60/23)));
-  $$('[data-k="avg"]').forEach(el=>el.textContent=Math.floor(at/60)+'m '+String(at%60).padStart(2,'0')+'s');
-  const pts=[];for(let i=0;i<=60;i++)pts.push(R(s-(60-i)*60));const mn=Math.min(...pts),mx=Math.max(...pts);
-  const yy=v=>(27-(v-mn)/(mx-mn||1)*24).toFixed(1);
-  $$('svg[data-k="spark"]').forEach(el=>el.innerHTML=`<polyline fill="none" style="stroke:var(--live)" stroke-width="1.6" points="${pts.map((v,i)=>`${(i*2.5).toFixed(1)},${yy(v)}`).join(' ')}"/><circle cx="150" cy="${yy(pts[60])}" r="2.5" style="fill:var(--live)"/>`);
-  const hi=Math.max(...vals);
-  $$('[data-k="bars"]').forEach(el=>{
-    if(!el.children.length)el.innerHTML=SECTIONS.map(x=>`<a class="bar" href="${secHref(x.id)}"><span>${x.n}</span><span class="t"><i style="background:var(${x.color})"></i></span><span class="n"></span></a>`).join('');
-    vals.forEach((v,i)=>{const row=el.children[i];tween(row.querySelector('.n'),v,inr);row.querySelector('i').style.width=(v/hi*100)+'%'});
-  });
-  const today=readsSinceMidnight(s);
-  $$('[data-secrn]').forEach(el=>tween(el,SEC_RN[el.dataset.secrn],inr));
-  $$('[data-secday]').forEach(el=>tween(el,today*SEC[el.dataset.secday].share,inr));
-  $$('[data-secpct]').forEach(el=>el.textContent=Math.round(SEC_RN[el.dataset.secpct]/r*100)+'%');
-  $$('[data-cityrn]').forEach(el=>tween(el,CITY_RN[el.dataset.cityrn],inr));
-  $$('[data-cityday]').forEach(el=>tween(el,today*CITY[el.dataset.cityday].share,inr));
-  $$('[data-reading]').forEach(el=>{const v=READING[el.dataset.reading];if(v!==undefined)tween(el,v,inr)});
-  $$('[data-views]').forEach(el=>tween(el,BY[el.dataset.views].v,inr));
-  $$('[data-mostread]').forEach(el=>{
-    const spec=el.dataset.mostread, n=+(el.dataset.n||5);
+  $$('[data-latest]').forEach(el=>{
+    const spec=el.dataset.latest, n=+(el.dataset.n||5);
     let pool=visible(); if(spec.startsWith('c:'))pool=pool.filter(x=>x.c===spec.slice(2)); else if(spec.startsWith('s:'))pool=pool.filter(x=>x.s===spec.slice(2));
-    el.innerHTML=byReaders(pool).slice(0,n).map((x,i)=>`<a class="mr" href="#/story/${x.id}"><span class="k">${i+1}</span><span class="t">${x.t}</span><span class="r">${inr(READING[x.id]||0)} reading</span></a>`).join('');
+    el.innerHTML=byRecent(pool).slice(0,n).map((x,i)=>`<a class="mr" href="#/story/${x.id}"><span class="k">${i+1}</span><span class="t">${x.t}</span><span class="r">${agoShort(x)}</span></a>`).join('');
   });
-  $$('[data-k="reports"]').forEach(el=>{const n=412+Math.floor(elapsed()/6);el.textContent=inr(n)});
 }
 
 // ---------- pieces ----------
-const storyMeta=(st,opt={})=>`<div class="meta">${opt.favs?favs(st):''}${outletsTxt(st)} · ${ago(st)} · <span class="n" data-views="${st.id}">${inr(st.v)}</span> views${opt.reading?` · <span class="n" data-reading="${st.id}">${inr(READING[st.id]||0)}</span> reading now`:''}</div>`;
+const storyMeta=(st,opt={})=>`<div class="meta">${opt.favs?favs(st):''}${outletsTxt(st)} · ${ago(st)}</div>`;
 const listItem=(st,isNew)=>`<a class="story${isNew?' slide':''}" href="#/story/${st.id}"><div class="hl">${ageMin(st)<3?'<span class="new">NEW</span>':''}${st.t}</div>${storyMeta(st)}</a>`;
-const cardItem=st=>`<a class="card story" href="#/story/${st.id}">${kicker(st)}<div class="hl">${st.t}</div><div class="meta">${pill(st)}${outletsTxt(st)} · ${agoShort(st)} · <span class="n" data-views="${st.id}">${inr(st.v)}</span> views</div></a>`;
+const cardItem=st=>`<a class="card story" href="#/story/${st.id}">${kicker(st)}<div class="hl">${st.t}</div><div class="meta">${pill(st)}${outletsTxt(st)} · ${agoShort(st)}</div></a>`;
 const leadItem=st=>`<a class="lead-story story" href="#/story/${st.id}"><div class="meta" style="margin-top:0">${kicker(st)}${pill(st)}</div><div class="hl">${st.t}</div><p class="sum">${st.sum}</p>${st.fig?`<div class="fig"><b>${st.fig[0]}</b><span>${st.fig[1]}</span></div>`:''}${storyMeta(st,{favs:1,reading:1})}</a>`;
 const jiRow=(st,isNew)=>`<a class="ji${isNew?' slide':''}" href="#/story/${st.id}"><span class="tm">${agoShort(st)}</span><span class="t">${ageMin(st)<3?'<span class="new">NEW</span>':''}${isCityStory(st)?CITY[st.c].n+': ':''}${st.t}</span></a>`;
 const feedRow=(st,isNew)=>`<div class="item${isNew?' slide':''}"><div class="tm"><b>${clockAt(ageMin(st))}</b>${agoShort(st)}</div><div><div class="meta" style="margin-top:0">${kicker(st)}${pill(st)}</div><a class="story" href="#/story/${st.id}"><div class="hl">${ageMin(st)<3?'<span class="new">NEW</span>':''}${st.t}</div></a>${storyMeta(st,{favs:1,reading:1})}</div></div>`;
 const cityStories=id=>visible().filter(x=>x.c===id);
-const leadOf=list=>[...list].sort((a,b)=>b.f-a.f)[0];
+const leadOf=list=>[...list].sort((a,b)=>b.rank-a.rank)[0];
 const weatherTile=c=>`<div class="tile"><div class="lbl">Weather</div><div class="v">${c.w[0]}°C</div><div class="lbl">${c.w[1]} · feels like ${c.w[2]}° · ${c.w[3]}°/${c.w[4]}°</div></div>`;
 const aqiTile=c=>`<div class="tile"><div class="lbl">Air quality (est.)</div><div class="v">${c.aqi[0]}</div><div class="lbl">${aqiBand(c.aqi[0])} · PM2.5 ${c.aqi[1]}</div><div class="aqi-bar"><i style="left:${Math.min(98,c.aqi[0]/5)}%"></i></div></div>`;
 const alertTile=c=>`<div class="tile"><div class="lbl">Local alert</div><div class="alert">${c.alert}</div></div>`;
-const readersTile=c=>`<div class="tile"><div class="stat"><span class="dot"></span><span class="v" style="font-size:16px" data-cityrn="${c.id}">${inr(CITY_RN[c.id]||0)}</span><span class="lbl">reading ${c.n}</span></div></div>`;
+const readersTile=()=>`<div class="tile"><div class="lbl">Reader analytics</div><div class="v" style="font-size:16px">Unavailable</div><div class="lbl">Actual collection is not connected in this design demo.</div></div>`;
 
 // ---------- pages ----------
 let homeCity='lucknow';
@@ -702,13 +656,11 @@ function Home(){
   const fog=BY.fog, lead=BY.up;
   return `
   <div class="strip">
-    <div class="stat"><span class="dot"></span><span class="big" data-k="rn">971</span><span class="lbl">reading now</span></div>
-    <div class="stat"><span class="v" data-k="r24">3.5 lakh</span><span class="lbl">reads in 24 hours</span></div>
-    <div class="stat"><span class="v" data-k="avg">4m 10s</span><span class="lbl">average time</span></div>
-    <svg class="spark" data-k="spark" width="150" height="30" viewBox="0 0 150 30" aria-label="Readers, last 60 minutes"></svg>
+    <div class="stat"><span class="lbl">Reader analytics</span><span class="v">Unavailable</span></div>
+    <div class="lbl">Actual collection is not connected in this design demo.</div>
   </div>
   <a class="since" href="#/live">↑ <b data-k="newcount">${23+arrivedCount()}</b> new stories since you were here at 9:12 AM <span>· Show them →</span></a>
-  <a class="breaking story" href="#/story/fog"><div class="kicker">Breaking · ${ago(fog)} · ${fog.o} outlets</div><div class="hl">${fog.t}</div><div class="meta">${favs(fog)}TOI, NDTV, Hindustan Times +4 · <span class="n" data-views="fog">${inr(fog.v)}</span> views · <span class="n" data-reading="fog">${inr(READING.fog||0)}</span> reading now</div></a>
+  <a class="breaking story" href="#/story/fog"><div class="kicker">Breaking · ${ago(fog)} · ${fog.o} outlets</div><div class="hl">${fog.t}</div><div class="meta">${favs(fog)}TOI, NDTV, Hindustan Times +4</div></a>
   <div class="lead-grid">
     <a class="lead story" href="#/story/up"><div class="meta" style="margin-top:0">${kicker(lead)}${pill(lead)}</div><div class="hl">${lead.t}</div><p class="sum">${lead.sum}</p><div class="fig"><b>${lead.fig[0]}</b><span>${lead.fig[1]}</span></div>${storyMeta(lead,{favs:1,reading:1})}</a>
     <aside class="brief"><div class="kicker" style="color:var(--acc)">The Brief</div><h4>5 things to know</h4><div class="lbl">as of 3:00 PM IST · refreshed hourly</div>
@@ -721,14 +673,14 @@ function Home(){
       <div class="mapbox"><div class="row"><span class="real">Where news is breaking · last hour</span><span class="live" style="font-size:10px"><span class="dot"></span>LIVE</span></div>
         <svg id="map" viewBox="0 0 360 140" aria-label="World map with live news points"></svg>
         <div class="pstats"><div><b>63</b>countries reporting</div><div><b data-k="reports">412</b>new reports</div><div><b>216</b>sources watched</div></div></div>
-      <div class="bars"><h5><span>Right now on Swatantra Duniya</span><span class="lbl">readers</span></h5><div data-k="bars"></div></div>
+      <div class="bars"><h5>Reader analytics</h5><p class="note">Unavailable in this design demo. The production site will show only measured readership.</p><a class="more" href="https://kunal5.github.io/swatantra-duniya-demo/design.html">Read the design notes →</a></div>
     </div></section>
   <div class="two">
     <div><div class="sechead"><h3 class="sec">Just in</h3><span class="live"><span class="dot"></span>STREAMING</span></div><div data-list="justin"></div><a class="more" href="#/live">See all live updates →</a></div>
-    <div><div class="sechead"><h3 class="sec">Most read now</h3></div><div data-mostread=""></div></div>
+    <div><div class="sechead"><h3 class="sec">Latest stories</h3></div><div data-latest=""></div></div>
   </div>
   <section class="block"><h3 class="sec">From the sections</h3>
-    <div class="secgrid">${['india','world','business','sports','entertainment','tech','science','up'].map(id=>{const s=SEC[id];const top=[...visible().filter(x=>x.s===id)].sort((a,b)=>b.f-a.f).slice(0,2);
+    <div class="secgrid">${['india','world','business','sports','entertainment','tech','science','up'].map(id=>{const s=SEC[id];const top=[...visible().filter(x=>x.s===id)].sort((a,b)=>b.rank-a.rank).slice(0,2);
       return `<div class="secbox"><h4><a href="${secHref(id)}" style="color:var(${s.color})">${s.n} →</a></h4>${top.map(x=>`<a class="story" href="#/story/${x.id}"><div class="hl">${x.t}</div><div class="meta">${outletsTxt(x)} · ${agoShort(x)}</div></a>`).join('')}</div>`}).join('')}</div>
   </section>`;
 }
@@ -738,12 +690,12 @@ function City(id){
   <div class="tabs" role="tablist" aria-label="Cities">${CITIES.map(x=>`<a role="tab" aria-selected="${x.id===c.id}" href="#/c/${x.id}" class="${x.id===c.id?'on':''}" style="--cc:var(${x.color})">${x.n}</a>`).join('')}</div>
   <div class="page-head" style="--cc:var(${c.color})"><div class="bar-accent"></div><div class="kicker" style="color:var(--muted)">${c.state} · City</div>
     <h1>${c.n}<span class="hn">${c.hi}</span></h1>
-    <div class="meta"><span class="dot"></span><span class="n" data-cityrn="${c.id}">${inr(CITY_RN[c.id]||0)}</span> reading now · <span class="n" data-cityday="${c.id}">0</span> reads today · ${list.length} stories today</div></div>
+    <div class="meta">${list.length} sample stories · reader analytics unavailable</div></div>
   <div class="city-grid">
     <div class="tiles">${weatherTile(c)}${aqiTile(c)}${alertTile(c)}</div>
     <div>${lead?leadItem(lead):'<p class="empty">No stories yet.</p>'}<div class="list" data-list="city:${c.id}" data-lead="${lead?lead.id:''}">${rest.map(st=>listItem(st)).join('')}</div></div>
     <aside>
-      <div class="side-box"><h4>Most read in ${c.n}</h4><div data-mostread="c:${c.id}" data-n="3"></div></div>
+      <div class="side-box"><h4>Latest in ${c.n}</h4><div data-latest="c:${c.id}" data-n="3"></div></div>
       <div class="side-box"><h4>Other cities</h4>${CITIES.filter(x=>x.id!==c.id).map(x=>{const t=leadOf(cityStories(x.id));return `<a class="oc" href="#/c/${x.id}"><span class="kicker" style="color:var(${x.color})">${x.n} →</span>${t?`<span class="hl">${t.t}</span>`:''}</a>`}).join('')}</div>
     </aside>
   </div>`;
@@ -754,10 +706,10 @@ function Section(id){
   const ups=id==='up'?`<div class="tabs" aria-label="Cities in Uttar Pradesh">${CITIES.filter(c=>c.state==='Uttar Pradesh').map(c=>`<a href="#/c/${c.id}" style="--cc:var(${c.color})">${c.n} →</a>`).join('')}</div>`:'';
   return `
   <div class="page-head" style="--cc:var(${s.color})"><div class="bar-accent"></div><div class="kicker" style="color:var(--muted)">Section</div><h1>${s.n}</h1>
-    <div class="meta"><span class="dot"></span><span class="n" data-secrn="${id}">${inr(SEC_RN[id]||0)}</span> reading now · <span class="n" data-secday="${id}">0</span> reads today · <span class="n" data-secpct="${id}">${Math.round(s.share*100)}%</span> of all readers</div></div>
+    <div class="meta">Sample stories · reader analytics unavailable</div></div>
   ${ups}
   <div class="sec-grid"><div>${lead?leadItem(lead):''}<div class="grid2">${rest.map(st=>`<a class="story" href="#/story/${st.id}">${kicker(st)}<div class="hl">${st.t}</div>${storyMeta(st)}</a>`).join('')}</div></div>
-  <aside><div class="side-box"><h4>Most read in ${s.n}</h4><div data-mostread="s:${id}" data-n="3"></div></div><div class="side-box"><h4>Most read on the site</h4><div data-mostread="" data-n="5"></div></div></aside></div>`;
+  <aside><div class="side-box"><h4>Latest in ${s.n}</h4><div data-latest="s:${id}" data-n="3"></div></div><div class="side-box"><h4>Latest on the site</h4><div data-latest="" data-n="5"></div></div></aside></div>`;
 }
 function Story(id){
   const st=BY[id]; if(!st||!isVisible(st))return `<p class="empty">This story is not available yet. <a class="more" href="#/">Go to the homepage →</a></p>`;
@@ -769,7 +721,7 @@ function Story(id){
   <div class="story-grid"><article class="story">
     <div class="meta" style="margin-top:0">${st.brk?'<span class="pill brk">Breaking</span>':''}${kicker(st)}${pill(st)}</div>
     <h1>${st.t}</h1>
-    <div class="nums"><span><span class="dot"></span><b data-reading="${id}">${inr(READING[id]||0)}</b> reading now</span><span><b data-views="${id}">${inr(st.v)}</b> views</span><span><b>${readTime(st)}</b> read</span></div>
+    <div class="nums"><span>Reader analytics unavailable in this design demo.</span></div>
     <div class="lbl">Updated ${clockAt(m*0.08)} · from ${st.o} outlet${st.o>1?'s':''}</div>
     ${st.fig?`<div class="fig"><b>${st.fig[0]}</b><span>${st.fig[1]}</span></div>`:''}
     <p class="sum">${st.sum}</p>
@@ -780,14 +732,14 @@ function Story(id){
     <button class="wa" data-act="share" data-id="${id}">Share on WhatsApp</button>
     <p class="note">We write this summary only from the reports above. Every outlet is linked, so you can check any fact at its source.</p>
   </article>
-  <aside><div class="side-box"><h4>Most read now</h4><div data-mostread="" data-n="5"></div></div>
+  <aside><div class="side-box"><h4>Latest stories</h4><div data-latest="" data-n="5"></div></div>
     <div class="side-box"><h4>More from ${labelOf(st)}</h4><div class="list">${more.map(x=>listItem(x)).join('')||'<p class="empty">Nothing else yet.</p>'}</div><a class="more" href="${hrefOf(st)}">All of ${labelOf(st)} →</a></div></aside></div>`;
 }
 const LIVE_FILTERS=[['','All'],['lucknow','Lucknow'],['up','Uttar Pradesh'],['delhi','Delhi'],['india','India'],['world','World'],['business','Business'],['sports','Sports'],['entertainment','Entertainment'],['tech','Tech'],['science','Science & Health']];
 function Live(f){
   f=f||'';
   return `<div class="page-head"><div class="live" style="font-size:12px"><span class="dot"></span>LIVE</div><h1>Live updates</h1>
-    <div class="meta">A story appears here once two outlets report it. <span class="n" data-k="rn">971</span> people on the site now.</div></div>
+    <div class="meta">Sample live-feed interaction · reader analytics unavailable.</div></div>
   <div class="tabs" aria-label="Filter">${LIVE_FILTERS.map(([id,n])=>`<a href="#/live${id?'?f='+id:''}" class="${f===id?'on':''}">${n}</a>`).join('')}</div>
   <div class="feed" data-list="live:${f}"></div>`;
 }
@@ -808,7 +760,7 @@ function answerFor(q){
   const toks=(ql.match(/[a-z0-9₹]+/g)||[]).filter(t=>!STOP.has(t)&&t.length>1);
   const scored=visible().map(st=>{const title=st.t.toLowerCase(),body=(st.sum+' '+labelOf(st)+' '+(st.c?CITY[st.c].n:'')+' '+SEC[st.s].n).toLowerCase();
     let sc=0;toks.forEach(t=>{if(title.includes(t))sc+=3;else if(body.includes(t))sc+=1});return {st,sc}}).filter(x=>x.sc>0)
-    .sort((a,b)=>b.sc-a.sc||b.st.f-a.st.f).slice(0,3).map(x=>x.st);
+    .sort((a,b)=>b.sc-a.sc||b.st.rank-a.st.rank).slice(0,3).map(x=>x.st);
   if(!scored.length)return null;
   return {text:'Here is what today\'s reports say. '+scored.map((st,i)=>firstSentence(st.sum).replace(/\.$/,'')+`.[${i+1}]`).join(' '),cites:scored.map(st=>[st.id,srcs(st)[0]]),stories:scored.map(st=>st.id)};
 }
@@ -839,7 +791,7 @@ function renderLists(newId){
   });
 }
 function checkArrivals(){
-  STORIES.forEach(st=>{if(st.arr&&!arrivedIds.has(st.id)&&isVisible(st)){arrivedIds.add(st.id);computeNumbers();renderLists(st.id);$$('[data-k="newcount"]').forEach(el=>el.textContent=23+arrivedCount());tick()}});
+  STORIES.forEach(st=>{if(st.arr&&!arrivedIds.has(st.id)&&isVisible(st)){arrivedIds.add(st.id);renderLists(st.id);$$('[data-k="newcount"]').forEach(el=>el.textContent=23+arrivedCount());tick()}});
 }
 
 // ---------- map ----------
@@ -905,7 +857,6 @@ window.addEventListener('hashchange',route);
   $('#nav').innerHTML=`<a href="#/" data-key="top">Top</a>${NAV.map(id=>`<a href="${secHref(id)}" data-key="${id}">${SEC[id].n}</a>`).join('')}<a class="lv" href="#/live" data-key="live">● Live</a>`;
   let t='light';try{t=localStorage.getItem('sd-theme')||'light'}catch(e){}
   setTheme(t);
-  computeNumbers();
   route();
   setInterval(tick,5000);
   let u=6;setInterval(()=>{u=(u+1)%10;$$('[data-k="upd"]').forEach(el=>el.textContent=u);checkArrivals()},1000);
